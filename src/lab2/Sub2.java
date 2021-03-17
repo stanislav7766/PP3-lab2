@@ -21,14 +21,12 @@ public class Sub2 {
         CountDownLatch counter = new CountDownLatch(2);
 
         Thread task1 = new Thread(() -> {
-            Matrix copy_MT = MT;
-            B.multiplyWithMatrix(copy_MT);
+            B.multiplyWithMatrix(MT);
             counter.countDown();
         });
 
         Thread task2 = new Thread(() -> {
-            Matrix copy_MX = MX;
-            D.multiplyWithDouble(fixed_a).multiplyWithMatrix(copy_MX);
+            D.multiplyWithDouble(fixed_a).multiplyWithMatrix(MX);
             counter.countDown();
         });
 
